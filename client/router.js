@@ -5,15 +5,33 @@ function setFun (_id) {
 }
 
 function checkLoggedIn() {
-	if(!Meteor.user())
-	{
-		this.redirect(Meteor.homePath());
+	if (Meteor.loggingIn()) {
+    	// dynamically set the template
+    	this.template("loading");
+
+    	// stop downstream callbacks from running
+    	this.done();
+  	}
+  	else{	
+		if(!Meteor.user())
+		{
+			this.redirect(Meteor.homePath());
+		}
 	}
 }
 function checkLoggedOut() {
-	if(Meteor.user())
-	{
-		this.redirect(Meteor.homePath());
+	if (Meteor.loggingIn()) {
+    	// dynamically set the template
+    	this.template("loading");
+
+    	// stop downstream callbacks from running
+    	this.done();
+  	}
+  	else{	
+		if(Meteor.user())
+		{
+			this.redirect(Meteor.homePath());
+		}
 	}
 }
 
