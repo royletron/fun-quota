@@ -1,0 +1,78 @@
+<head>
+  <title>fun-quota</title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.4/bootstrap-editable/css/bootstrap-editable.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.4/bootstrap-editable/js/bootstrap-editable.min.js"></script>
+</head>
+
+<body>
+</body>
+
+<template name="layout">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-narrow">
+        <ul class="nav">
+          <li {{#if pageNavEquals 'home'}}class="active"{{/if}}><a href="{{homePath}}">Home</a></li>
+          <li {{#if pageNavEquals 'about'}}class="active"{{/if}}><a href="{{aboutPath}}">About</a></li>
+          <li {{#if pageNavEquals 'fun'}}class="active"{{/if}}><a href="{{funsPath}}">Funs</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container-narrow">
+    <div class="masthead">
+      <h1 class="muted pull-left fun">Fun Quota</h1>
+      <div class="pull-right">
+        {{> user_info}}
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <hr>
+    {{{yield}}}
+    <hr>
+
+    <div class="footer">
+      <p>© Company 2012</p>
+    </div>
+  </div>
+</template>
+
+<template name="home">
+  {{#if currentUser}}
+  <h1>Welcome Screen</h1>
+  {{else}}
+  <div class="jumbotron">
+    <h1>Welcome to Fun-Quota!</h1>
+    <p class="lead">You know it makes sense to do this!</p>
+    <a class="btn btn-large btn-success" href="/login">Get started</a>
+  </div>
+  {{/if}}
+</template>
+
+<template name="logout">
+  <h1>Bye</h1>
+</template>
+
+<template name="login">
+
+  <div class="row-fluid">
+    <form class="span6 form-signin" id="login-form" action="action">
+      <h2 class="form-signin-heading">Please sign in</h2>
+      <input type="email" class="input-block-level" placeholder="Email address" id="login-email" />
+      <input type="password" class="input-block-level" placeholder="Password" id="login-password" />
+      <label class="checkbox">
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+      <input type="submit" class="btn btn-large btn-primary" id="login-button" type="submit" value="Sign in" /><a class="btn btn-large btn-primary" id="facebook-login-button" style="margin-top:10px;">Sign in with Facebook</a><a class="btn btn-large btn-primary" href="./signup" style="margin-top:10px;">Create a new account</a>
+    </form>
+    <div class="span6">
+      <p>hey</p>
+    </div>
+  </div>
+  
+</template>
+
+<template name="about">
+  <h1>
+</template>

@@ -1,0 +1,15 @@
+<template name="signup">
+  <div class="row-fluid">
+    <div class="span6">
+      <img src="b006us74y6.png">
+    </div>
+    <form id="register-form" class="span6 form-signin" action="action" style="text-align:center">
+      <h2>Signup</h2>
+      {{> name_field}}
+      {{> avatar_uploader}}
+      {{> email_field}}
+      {{> password_field}}
+      <input type="submit" class="btn btn-large btn-primary" id="create-account" value="Create an Account" />
+    </form>
+  </div>
+</template>

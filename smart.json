@@ -1,0 +1,20 @@
+{
+  "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
+    "branch": "master"
+  },
+  "packages": {
+    "router": {},
+    "filepicker": {},
+    "jqbootstrapvalidation": {},
+    "moment": {},
+    "accounting": {},
+    "bootstrap-datepicker": {
+      "git": "https://github.com/royletron/bootstrap-datepicker.git"
+    },
+    "bootstrap-customizable": {
+      "git": "https://github.com/royletron/meteor-bootstrap-less"
+    },
+    "mini-pages": {}
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
+    "branch": "master",
+    "commit": "bfe4b72ebec4367eaddcdf0887fcf5e649d9dcb8"
+  },
+  "dependencies": {
+    "basePackages": {
+      "router": {},
+      "filepicker": {},
+      "jqbootstrapvalidation": {},
+      "moment": {},
+      "accounting": {},
+      "bootstrap-datepicker": {
+        "git": "https://github.com/royletron/bootstrap-datepicker.git",
+        "branch": "master"
+      },
+      "bootstrap-customizable": {
+        "git": "https://github.com/royletron/meteor-bootstrap-less",
+        "branch": "master"
+      },
+      "mini-pages": {}
+    },
+    "packages": {
+      "router": {
+        "git": "https://github.com/tmeasday/meteor-router.git",
+        "tag": "v0.5.1",
+        "commit": "32e377c7703bb119acccc859fc7296882903cbe7"
+      },
+      "filepicker": {
+        "git": "https://github.com/Filepicker/meteor.git",
+        "tag": "v0.3.0",
+        "commit": "dcb6f3779e5fc105520ba06b0392e3a79c73a7e6"
+      },
+      "jqbootstrapvalidation": {
+        "git": "https://github.com/nate-strauser/meteor-jqbootstrapvalidation.git",
+        "tag": "v0.1.0",
+        "commit": "2af4625d41a9b24311544a53790f14fa38c27b10"
+      },
+      "moment": {
+        "git": "https://github.com/possibilities/meteor-moment.git",
+        "tag": "v1.7.0",
+        "commit": "c64b6ec0e714b9556f4b6643d430b868ba69d3d7"
+      },
+      "accounting": {
+        "git": "https://github.com/IainShigeoka/meteor-accounting.git",
+        "tag": "v0.3.2.3",
+        "commit": "330cf532e6ac7282cf85ef3b83a54c1a25f5bdae"
+      },
+      "bootstrap-datepicker": {
+        "git": "https://github.com/royletron/bootstrap-datepicker.git",
+        "branch": "master",
+        "commit": "7a5f9503ef03fbc12ce34350bbc07432546034d8"
+      },
+      "bootstrap-customizable": {
+        "git": "https://github.com/royletron/meteor-bootstrap-less",
+        "branch": "master",
+        "commit": "7e9d9eadcb0263d6a0cc556c6096f04d888c3807"
+      },
+      "mini-pages": {
+        "git": "https://github.com/cmather/meteor-mini-pages.git",
+        "tag": "v0.3.1",
+        "commit": "d218140d37b0dbec975880755c2035ae9e022936"
+      },
+      "page-js-ie-support": {
+        "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
+        "tag": "v1.3.5",
+        "commit": "b99ed8380aefd10b2afc8f18d9eed4dd0d8ea9cb"
+      },
+      "HTML5-History-API": {
+        "git": "https://github.com/tmeasday/meteor-HTML5-History-API.git",
+        "tag": "v0.1.2",
+        "commit": "72333bfa71ae1ca75243085e83200eef40818088"
+      }
+    }
+  }
+}

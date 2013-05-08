@@ -1,0 +1,103 @@
+@font-face
+{
+	font-family: Outstanding;
+	src: url('/Outstanding.ttf');
+}
+
+@font-face
+{
+	font-family: Sketch;
+	src: url('/sketch.ttf');
+}
+
+@font-face
+{
+	font-family: Seaside;
+	src: url('/SEASRN__.ttf');
+}
+
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+	background-image: url('/fabric_of_squares_gray.png');
+}
+
+.fun {
+	font-family: Seaside;
+}
+
+/* Custom container */
+.container-narrow {
+	margin: 0 auto;
+	max-width: 700px;
+}
+.container-narrow > hr {
+	margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+	margin: 60px 0;
+	text-align: center;
+}
+.jumbotron h1 {
+	font-size: 72px;
+	line-height: 1;
+}
+.jumbotron .btn {
+	font-size: 21px;
+	padding: 14px 24px;
+}
+/* Supporting marketing content */
+.marketing {
+	margin: 60px 0;
+}
+.marketing p + h4 {
+	margin-top: 28px;
+}
+
+
+.avatar{ /* selector for avatar class*/
+    border-radius: 50%; /* border-radius is equal to 50 percent of a general width, actually 25 pixels, here and a circle was got(there is also with prefix - moz and - o) */
+
+		box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+		-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+		-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.form-signin {
+	padding: 19px 29px 29px;
+	margin: 0 auto 20px;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+.form-signin input[type="email"],
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+	font-size: 16px;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 7px 9px;
+}
+@media (max-width: 979px)
+{
+	body{
+		padding-top:0px;
+	}
+}
+@media (min-width: 1200px)
+{
+	.row-fluid [class*="span"] {
+		margin-left: 2.127659574468085%;
+	}
+}

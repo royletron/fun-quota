@@ -1,0 +1,17 @@
+<template name="name_field">
+  <input type="text" class="input-block-level" placeholder="Your name" id="account-name" value="{{#if currentUser}}{{currentUser.profile.name}}{{/if}}" />
+</template>
+
+<template name="email_field">
+  <input type="email" class="input-block-level" placeholder="Email" id="account-email" />
+</template>
+
+<template name="password_field">
+  <input type="password" class="input-block-level" placeholder="Password" id="account-password" />
+</template>
+
+<template name="avatar_uploader">
+  <img class="avatar" id="avatar" width="60" height="60" src="{{#if currentUser}}{{currentUser.profile.picture}}{{else}}missing.png{{/if}}" style="margin-bottom:10px; margin-right:10px" />
+  <input id="constructed-widget" data-fp-button-text="Change Avatar" type="filepicker" class="btn btn-primary" data-fp-apikey="AGoAQw3tLTM6bQT3BjhAzz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER" onchange="avatarUploaded(event.fpfile.url)" />
+  <input type="hidden" id="filepath" value="{{#if currentUser}}{{currentUser.profile.picture}}{{else}}missing.png{{/if}}" />
+</template>

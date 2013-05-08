@@ -1,0 +1,50 @@
+<template name="new_expense">
+  <div id="expense-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="expense-modal" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Add expense</h3>
+    </div>
+    <div class="modal-body">      
+      <div class="form-horizontal">
+        <div class="control-group">
+          <label class="control-label">Expense name</label>
+          <div class="controls">
+            <input type="text" class="input-block-level" placeholder="Expense name" id="expense-name" required />
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label class="control-label">Expense type</label>
+          <div class="controls">
+            <select id="expense-type" class="input-block-level">
+              <option>Travel</option>
+              <option>Food & Drink</option>
+              <option>Accommodation</option>
+              <option>Tickets</option>
+              <option>Gifts/Purchases</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label class="control-label">Expense cost</label>
+          <div class="controls">
+            <input type="number" class="input-block-level" placeholder="Cost" id="expense-cost" required />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <a id="add-expense" class="btn btn-primary">Add expense</a>
+    </div>
+  </div>
+</template>
+
+<template name="expense">
+  <tr>
+    <td><a href="#" id="{{_id}}_name" data-type="text" class="editable editable-click">{{name}}</a></td>
+    <td><a href="#" id="{{_id}}_type" data-type="select" class="editable editable-click">{{type}}</a></td>
+    <td><a href="#" id="{{_id}}_cost" data-type="text" class="editable editable-click">{{formatMoolah cost}}</a></td>
+  </tr>
+</template>

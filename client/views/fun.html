@@ -1,0 +1,113 @@
+<template name="newFun">
+  <h1>Create-a-fun</h1>
+  <form id="add-fun" class="form-horizontal" action="action">
+    <div class="control-group">
+      <label class="control-label" for="name">Name</label>
+      <div class="controls">
+        <input type="text" class="input-block-level" id="fun-name" required />
+        <p class="help-block">You need to name your fun.</p>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <label class="control-label" for="name">Date</label>
+      <div class="controls">
+        <div class="input-append date datepicker" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+          <input class="span2" id="fun-date" size="16" type="text" value="12-02-2012" />
+          <span class="add-on"><i class="icon-calendar"></i></span>
+        </div>
+          <p class="help-block">When did/will it happen?.</p>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <label class="control-label">Fun duration</label>
+      <div class="controls">
+        <select id="fun-duration" class="input-block-level">
+          <option value="30">30 mins</option>
+          <option value="60">1 hr</option>
+          <option value="120">2 hrs</option>
+          <option value="180">3 hrs</option>
+          <option value="360">6 hrs</option>
+          <option value="720">all day</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <label class="control-label" for="name">Doing it?</label>
+      <div class="controls">
+        <label class="radio inline">
+          <input type="radio" name="fun-going" id="optionsRadios1" value="n" checked>
+          Not sure
+        </label>
+        <label class="radio inline">
+          <input type="radio" name="fun-going" id="optionsRadios2" value="y">
+          Yes
+        </label>
+        <p class="help-block">You don't have to have fun...</p>
+      </div>
+    </div>
+    <div class="form-actions">
+      <input type="submit" class="btn btn-primary" id="create-fun" value="Start a fun" />
+    </div>
+    
+  </form>
+</template>
+
+
+<template name="funs">
+  <h1>Bring the funs</h1>
+  <table class="table table-striped">
+    <tr>
+      <th width="90"></th>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    {{#each funs}}
+      {{> afun}}
+    {{/each}}
+  </table>
+  <a class="btn btn-success" href="./fun">Add fun</a>
+</template>
+<template name="afun">
+  <tr>
+    <td>{{{getAvatarID user}}}</td>
+    <td style="vertical-align:middle"><a href="{{showFunPath}}">{{name}}</a></td>
+    <td style="vertical-align:middle">{{{getHappening this}}}</td>
+    <td style="vertical-align:middle">{{expensesTotal this}}</td>
+    <td style="vertical-align:middle">{{totalFun this}}</td>
+  </tr>
+</template>
+
+<template name="showFun">
+  {{page._id}}
+    <h1>{{{getAvatarID fun.user}}} <a href="#" id="fun_name" data-type="text">{{fun.name}}</a></h1>
+    <p class="well well-small"><a href="#" id="fun_happening" data-type="select">{{{getHappening fun}}}</a> 
+    <a href="#" id="fun_date" data-type="date" class="editable editable-click" data-original-title="Select date">{{{fromNow fun.date}}}</a>. <strong>{{#if hasHappened fun}}Lasted{{else}}Will last{{/if}} <a href="#" id="fun_duration" data-type="select">{{{getDurationLength fun.duration}}}</a></strong></p>
+  {{#if fun.expenses}}
+    <h2 class="muted">Expenses</h2>
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Cost</th>
+      </tr>
+      {{#each expense_items fun}}
+        {{> expense}}
+      {{/each}}
+      <tr>
+        <td></td>
+        <td></td>
+        <td>{{expensesTotal fun}}</td>
+      </tr>
+    </table>
+  {{else}}
+    <p>This fun has no expenses yet</p>
+  {{/if}}
+  <a href="#expense-modal" data-toggle="modal" class="btn btn-success">Add expense</a>
+  {{> new_expense}}
+  <div class="well alert" style="margin-top:20px;"><h2>Total fun = {{totalFun fun}}</h2></div>
+</template>
