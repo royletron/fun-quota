@@ -4,14 +4,27 @@ function setFun (_id) {
 	Session.set('currentFunId', _id.params._id);
 }
 
+function checkLoggedIn() {
+	if(!Meteor.user())
+	{
+		this.redirect(Meteor.homePath());
+	}
+}
+function checkLoggedOut() {
+	if(Meteor.user())
+	{
+		this.redirect(Meteor.homePath());
+	}
+}
+
 Meteor.pages({
 	'/': {to: 'home', nav: 'home'},
 	'/about': {to: 'about', nav: 'about'},
-	'/login': 'login',
+	'/login': {to: 'login', nav: 'home', before: [checkLoggedOut]},
 	'/logout': 'logout',
-	'/funs': {to: 'funs', nav: 'fun'},
-	'/signup': 'signup',
-	'/newfun': {to: 'newFun', nav: 'fun'},
-	'/funs/:_id': {to: 'showFun', before: [setFun], nav: 'fun' }
+	'/funs': {to: 'funs', nav: 'fun', before: [checkLoggedIn]},
+	'/signup': {to: 'signup', nav: 'home', before: [checkLoggedOut]},
+	'/newfun': {to: 'newFun', before: [checkLoggedIn], nav: 'fun'},
+	'/funs/:_id': {to: 'showFun', before: [checkLoggedIn, setFun], nav: 'fun' }
 }	
 );

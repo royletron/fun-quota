@@ -14,7 +14,9 @@
         <ul class="nav">
           <li {{#if pageNavEquals 'home'}}class="active"{{/if}}><a href="{{homePath}}">Home</a></li>
           <li {{#if pageNavEquals 'about'}}class="active"{{/if}}><a href="{{aboutPath}}">About</a></li>
-          <li {{#if pageNavEquals 'fun'}}class="active"{{/if}}><a href="{{funsPath}}">Funs</a></li>
+          {{#if currentUser}}
+            <li {{#if pageNavEquals 'fun'}}class="active"{{/if}}><a href="{{funsPath}}">Funs</a></li>
+          {{/if}}
         </ul>
       </div>
     </div>

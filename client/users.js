@@ -21,7 +21,9 @@ Template.login.events({
 });
 
 Template.logout.rendered = function() {
-	Meteor.logout();
+	Meteor.logout(function(err){
+			Meteor.Router.to(Meteor.homePath());
+		})
 };
 
 Template.user_profile.events({
@@ -38,7 +40,7 @@ Template.user_info.events({
 	'click #logout' : function(e) {
 		e.preventDefault();
 		Meteor.logout(function(err){
-			Meteor.Router.to('/');
+			Meteor.Router.to(Meteor.homePath());
 		})
 	}
 });
