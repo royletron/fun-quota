@@ -15,6 +15,7 @@
     "bootstrap-customizable": {
       "git": "https://github.com/royletron/meteor-bootstrap-less"
     },
-    "mini-pages": {}
+    "mini-pages": {},
+    "spin": {}
   }
 }

@@ -19,7 +19,6 @@ Template.login.events({
 		Meteor.loginWithFacebook();
 	}
 });
-
 Template.logout.rendered = function() {
 	Meteor.logout(function(err){
 			Meteor.Router.to(Meteor.homePath());

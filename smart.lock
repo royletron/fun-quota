@@ -19,7 +19,8 @@
         "git": "https://github.com/royletron/meteor-bootstrap-less",
         "branch": "master"
       },
-      "mini-pages": {}
+      "mini-pages": {},
+      "spin": {}
     },
     "packages": {
       "router": {
@@ -61,6 +62,11 @@
         "git": "https://github.com/cmather/meteor-mini-pages.git",
         "tag": "v0.3.1",
         "commit": "d218140d37b0dbec975880755c2035ae9e022936"
+      },
+      "spin": {
+        "git": "https://github.com/SachaG/meteor-spin.git",
+        "tag": "v0.2.0",
+        "commit": "fd3a2871a69442848b4b4e74f5e1ae28fa4a95a4"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
