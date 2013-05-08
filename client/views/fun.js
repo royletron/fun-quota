@@ -30,7 +30,8 @@ Template.newFun.events({
 			happening: happening
 		}, function (error, fun) {
 			if (! error) {
-				Meteor.Router.to('/fun/'+fun);
+
+				Meteor.Router.to('/funs/'+fun);
 			}
 		});
 
