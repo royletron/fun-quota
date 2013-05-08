@@ -8,9 +8,10 @@
 </body>
 
 <template name="layout">
-  <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container-narrow">
+        <div class="muted pull-left fun">Fun Quota</div>
         <ul class="nav">
           <li {{#if pageNavEquals 'home'}}class="active"{{/if}}><a href="{{homePath}}">Home</a></li>
           <li {{#if pageNavEquals 'about'}}class="active"{{/if}}><a href="{{aboutPath}}">About</a></li>
@@ -18,19 +19,13 @@
             <li {{#if pageNavEquals 'fun'}}class="active"{{/if}}><a href="{{funsPath}}">Funs</a></li>
           {{/if}}
         </ul>
+        <div class="pull-right">
+          {{> user_info}}
+        </div>
       </div>
     </div>
   </div>
   <div class="container-narrow">
-    <div class="masthead">
-      <h1 class="muted pull-left fun">Fun Quota</h1>
-      <div class="pull-right">
-        {{> user_info}}
-      </div>
-      <div class="clearfix"></div>
-    </div>
-
-    <hr>
     {{{yield}}}
     <hr>
 
@@ -38,6 +33,8 @@
       <p>© Company 2012</p>
     </div>
   </div>
+
+    {{> user_profile}}
 </template>
 
 <template name="home">

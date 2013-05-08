@@ -51,6 +51,7 @@ Template.showFun.rendered = function() {
 		$('#fun_name').editable({
 			value: fun.name,
 			display: false,
+			placement: "bottom",
 			success: function(response, newValue) {
 				Meteor.call("updateFun", Session.get('currentFunId'), {name: newValue});
 			}
@@ -59,6 +60,7 @@ Template.showFun.rendered = function() {
 			source: [{value: 30, text: "30 mins"}, {value: 60, text: "1 hr"}, {value: 120, text: "2 hrs"}, {value: 180, text: "3 hrs"}, {value: 360, text: "6 hrs"}, {value: 720, text: "all day"}],
 			display: false,
 			value: fun.duration,
+			placement: "bottom",
 			showbuttons: false,
 			success: function(response, newValue) {
 					//console.log(newValue);
@@ -70,6 +72,7 @@ Template.showFun.rendered = function() {
 			display: false,
 			value: fun.happening,
 			showbuttons: false,
+			placement: "bottom",
 			success: function(response, newValue) {
 					//console.log(newValue);
 					Meteor.call("updateFun", Session.get('currentFunId'), {happening: newValue})
