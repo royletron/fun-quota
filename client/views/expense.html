@@ -17,11 +17,9 @@
           <label class="control-label">Expense type</label>
           <div class="controls">
             <select id="expense-type" class="input-block-level">
-              <option>Travel</option>
-              <option>Food & Drink</option>
-              <option>Accommodation</option>
-              <option>Tickets</option>
-              <option>Gifts/Purchases</option>
+              {{#each expense_types}}
+                <option value="{{_id}}">{{name}}</option>
+              {{/each}}
             </select>
           </div>
         </div>
@@ -40,11 +38,39 @@
     </div>
   </div>
 </template>
+<template name="expenses">
+  {{fun.name}}
+{{#if fun.expenses}}
+    <h2 class="muted">Expenses</h2>
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Cost</th>
+        <th WIDTH="30"></th>
+      </tr>
+      {{#each fun.expenses}}
+        {{> expense}}
+      {{/each}}
+      <tr>
+        <td></td>
+        <td></td>
+        <td>{{expensesTotal fun}}</td>
+        <td></td>
+      </tr>
+    </table>
+  {{else}}
+    <p>This fun has no expenses yet</p>
+  {{/if}}
 
+  <a href="#expense-modal" data-toggle="modal" class="btn btn-success">Add expense</a>
+  {{> new_expense}}
+</template>
 <template name="expense">
   <tr>
     <td><a href="#" id="{{_id}}_name" data-type="text" class="editable editable-click">{{name}}</a></td>
-    <td><a href="#" id="{{_id}}_type" data-type="select" class="editable editable-click">{{type}}</a></td>
+    <td><a href="#" id="{{_id}}_type" data-type="select" class="editable editable-click">{{expense_type.name}}</a></td>
     <td><a href="#" id="{{_id}}_cost" data-type="text" class="editable editable-click">{{formatMoolah cost}}</a></td>
+    <td><a href="#" id="remove"><i class="icon-remove"> </i></a></td>
   </tr>
 </template>

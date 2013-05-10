@@ -89,24 +89,70 @@ Handlebars.registerHelper("hasHappened", function(fun) {
 		return(moment().valueOf() > fun.date);
 	}
 });
+function getRow(left, right)
+{
+	return '<div class="row-fluid"><div class="span8" style="text-align:right">'+left+'</div><div class="span4">'+right+'</div></div>';
+}
+function roundIt(num)
+{
+	return Math.round(num*100)/100;
+}
+Handlebars.registerHelper("totalBreakdown", function (fun) {
+	if(fun)
+	{
+		var total = 0;
+		var returnHtml = ""
+		var expenses = Expenses.find({_id: {$in: fun.expenses}}).fetch();
+		var first = true;
+		_.each(expenses, function(expense) {
+			if(!first)
+			{
+				returnHtml = returnHtml + getRow('', '<strong>+</strong>')
+			}
+			first = false;
+			var type = ExpenseTypes.findOne({_id: expense.type});
+			returnHtml = returnHtml+getRow('<strong>Cost of</strong> '+expense.name+' =', accounting.formatMoney(parseFloat(expense.cost), "")+' (£)');
+			var thiscost = (parseFloat(expense.cost) * parseFloat(type.cost));
+			returnHtml = returnHtml+getRow('<strong>Multiplied by</strong> '+type.name+' ('+type.cost+') =', roundIt(thiscost));
+			var multipliers = Multipliers.find({_id: {$in: fun.multipliers}}).fetch();
+			_.each(multipliers, function(multiplier) {
+				var mtype = MultiplierTypes.findOne({_id: multiplier.type})
+				if(_.contains(mtype.affects, type.name) || (mtype.affects.length == 0))
+				{
+					thiscost = thiscost * mtype.cost;
+					returnHtml = returnHtml+getRow('<strong>Multiplied by</strong> '+mtype.name+' ('+mtype.cost+') =', roundIt(thiscost));
+				}
+			})
+			total = total + thiscost;
+			returnHtml = returnHtml + getRow('<strong>Running total</strong> =', roundIt(total));
+		});
+		returnHtml = returnHtml + getRow('<strong>Multiplied by time</strong> ('+fun.duration+' mins) =', roundIt(total * fun.duration));
+		return returnHtml;
+	
+	}
+})
 Handlebars.registerHelper("totalFun", function(fun) {
 	if(fun)
 	{
-
 		var total = 0;
 		var expenses = Expenses.find({_id: {$in: fun.expenses}}).fetch();
-		for(var i = 0; i < expenses.length; i++)
-		{
-			total = total + parseFloat(expenses[i].cost);
-		}
+		_.each(expenses, function(expense) {
+			var type = ExpenseTypes.findOne({_id: expense.type});
+			var thiscost = (parseFloat(expense.cost) * parseFloat(type.cost));
+			var multipliers = Multipliers.find({_id: {$in: fun.multipliers}}).fetch();
+			_.each(multipliers, function(multiplier) {
+				var mtype = MultiplierTypes.findOne({_id: multiplier.type})
+				if(_.contains(mtype.affects, type.name) || (mtype.affects.length == 0))
+				{
+					thiscost = thiscost * mtype.cost;
+				}
+			})
+			total = total + thiscost;
+		});
 		if(total < 10)
 			total = 10;
-		var multipliers = Multipliers.find({_id: {$in: fun.multipliers}}).fetch();
-		for(var i = 0; i < multipliers.length; i++)
-		{
-			total = total * parseFloat(multipliers[i].cost);
-		}
-		return total * fun.duration;
+
+		return roundIt(total * fun.duration);
 	
 	}
 	//return Handlebars.helpers.expensesTotal(fun);

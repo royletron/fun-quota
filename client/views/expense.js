@@ -25,8 +25,25 @@ Template.new_expense.events({
 		return false;
 	}
 });
+Template.expense.events({
+	'click #remove' : function(e, t) {
+		e.preventDefault();
+		Meteor.call("removeExpense", this._id);
+	}
+});
+Template.new_expense.expense_types = function() {
+	return ExpenseTypes.find().fetch();
+}
+Template.expense.expense_type = function() {
+	return ExpenseTypes.findOne({_id: this.type});
+}
 Template.expense.rendered = function() {
 	var dataid = this.data._id;
+	var source = [];
+	var sourcedata = ExpenseTypes.find().fetch();
+	_.each(sourcedata, function(item){
+		source.push({value: item._id, text: item.name})
+	});
 	$('#'+dataid+'_name').editable({
 		value: this.data.name,
 		display: false,
@@ -35,7 +52,7 @@ Template.expense.rendered = function() {
 		}
 	});
 	$('#'+dataid+'_type').editable({
-		source: [{value: "Travel", text: "Travel"}, {value: "Food & Drink", text: "Food & Drink"}, {value: "Accommodation", text: "Accommodation"}, {value: "Tickets", text: "Tickets"}, {value: "Gifts/Purchases", text: "Gifts/Purchases"}],
+		source: source,
 		display: false,
 		value: this.data.type,
 		showbuttons: false,

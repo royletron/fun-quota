@@ -38,6 +38,12 @@ Template.newFun.events({
 		return false;
 	}
 });
+Template.afun.events({
+	'click #remove' : function(e, t) {
+		e.preventDefault();
+		Meteor.call("removeFun", this._id);
+	}
+})
 Template.showFun.fun = function() {
 	var fun = Funs.findOne(Session.get('currentFunId'));
 	return fun;
@@ -45,6 +51,9 @@ Template.showFun.fun = function() {
 Template.showFun.expense_items = function(fun) {
 	return Expenses.find({_id: {$in: fun.expenses}}).fetch();
 };
+Template.showFun.mutliplier_items = function(fun) {
+	return Multipliers.find({_id: {$in: fun.multipliers}}).fetch();
+}
 Template.showFun.rendered = function() {
 	var fun = Funs.findOne(Session.get('currentFunId'));
 	if(fun)

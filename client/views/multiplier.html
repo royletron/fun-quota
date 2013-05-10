@@ -1,0 +1,44 @@
+<template name="new_multiplier">
+  <div id="multiplier-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="multiplier-modal" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Add multiplier</h3>
+    </div>
+    <div class="modal-body">      
+      <div class="form-horizontal">
+        <div class="control-group">
+          <label class="control-label">Description</label>
+          <div class="controls">
+            <input type="text" class="input-block-level" placeholder="Mutliplier description" id="multiplier-name" required />
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label class="control-label">Type</label>
+          <div class="controls">
+            <select id="multiplier-type" class="input-block-level">
+            	{{#each multi_types}}
+	            	<option value="{{_id}}">{{name}}</option>
+            	{{/each}}
+            </select>
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <a id="add-multiplier" class="btn btn-primary">Add multiplier</a>
+    </div>
+  </div>
+</template>
+
+<template name="multiplier">
+	<tr>
+    <td><a href="#" id="{{_id}}_name" data-type="text" class="editable editable-click">{{name}}</a></td>
+    <td><a href="#" id="{{_id}}_type" data-type="select" class="editable editable-click">{{multiplier_type.name}}</a></td>
+    <td>{{multiplier_type.cost}}</td>
+    <td><a href="#" id="remove"><i class="icon-remove"> </i></a></td>
+  </tr>
+</template>

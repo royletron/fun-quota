@@ -1,5 +1,6 @@
 <head>
   <title>fun-quota</title>
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
   <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.4/bootstrap-editable/css/bootstrap-editable.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.4/bootstrap-editable/js/bootstrap-editable.min.js"></script>
 </head>
@@ -12,29 +13,36 @@
     <div class="navbar-inner">
       <div class="container-narrow">
         <div class="muted pull-left fun">Fun Quota</div>
-        <ul class="nav">
-          <li {{#if pageNavEquals 'home'}}class="active"{{/if}}><a href="{{homePath}}">Home</a></li>
-          <li {{#if pageNavEquals 'about'}}class="active"{{/if}}><a href="{{aboutPath}}">About</a></li>
-          {{#if currentUser}}
-            <li {{#if pageNavEquals 'fun'}}class="active"{{/if}}><a href="{{funsPath}}">Funs</a></li>
-          {{/if}}
-        </ul>
-        <div class="pull-right">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+           <li {{#if pageNavEquals 'home'}}class="active"{{/if}}><a href="{{homePath}}">Home</a></li>
+           <li {{#if pageNavEquals 'about'}}class="active"{{/if}}><a href="{{aboutPath}}">About</a></li>
+           {{#if currentUser}}
+           <li {{#if pageNavEquals 'fun'}}class="active"{{/if}}><a href="{{funsPath}}">Funs</a></li>
+           {{/if}}
+         </ul>
+         <div class="pull-right" style="padding-top:5px">
           {{> user_info}}
         </div>
       </div>
     </div>
   </div>
+</div>
   <div class="container-narrow">
     {{{yield}}}
     <hr>
 
     <div class="footer">
-      <p>© Company 2012</p>
+      <p>© <a href="http://www.twitter.com/royletron">Royletron</a> & Lannertron</p>
     </div>
   </div>
 
-    {{> user_profile}}
+  {{> user_profile}}
 </template>
 
 <template name="home">
@@ -81,4 +89,4 @@
 
 <template name="about">
   <h1>
-</template>
+  </template>

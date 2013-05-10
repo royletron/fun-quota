@@ -15,12 +15,12 @@
         "git": "https://github.com/royletron/bootstrap-datepicker.git",
         "branch": "master"
       },
+      "mini-pages": {},
+      "spin": {},
       "bootstrap-customizable": {
         "git": "https://github.com/royletron/meteor-bootstrap-less",
         "branch": "master"
-      },
-      "mini-pages": {},
-      "spin": {}
+      }
     },
     "packages": {
       "router": {
@@ -53,11 +53,6 @@
         "branch": "master",
         "commit": "7a5f9503ef03fbc12ce34350bbc07432546034d8"
       },
-      "bootstrap-customizable": {
-        "git": "https://github.com/royletron/meteor-bootstrap-less",
-        "branch": "master",
-        "commit": "7e9d9eadcb0263d6a0cc556c6096f04d888c3807"
-      },
       "mini-pages": {
         "git": "https://github.com/cmather/meteor-mini-pages.git",
         "tag": "v0.3.1",
@@ -67,6 +62,11 @@
         "git": "https://github.com/SachaG/meteor-spin.git",
         "tag": "v0.2.0",
         "commit": "fd3a2871a69442848b4b4e74f5e1ae28fa4a95a4"
+      },
+      "bootstrap-customizable": {
+        "git": "https://github.com/royletron/meteor-bootstrap-less",
+        "branch": "master",
+        "commit": "7e9d9eadcb0263d6a0cc556c6096f04d888c3807"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

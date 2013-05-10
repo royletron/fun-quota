@@ -19,7 +19,10 @@ Meteor.methods({
 	addExpenseToFun: function (funId, expenseId) {
     Funs.update(funId, { $addToSet: { expenses: expenseId } });
 	},
-	addMuliplierToFun: function (funId, multiplierId) {
-	  Funs.update(funId, { $addToSet: { expenses: multiplierId } });
+	addMultiplierToFun: function (funId, multiplierId) {
+	  Funs.update(funId, { $addToSet: { multipliers: multiplierId } });
+	},
+	removeFun: function(funId) {
+		Funs.remove(funId);
 	}
 })

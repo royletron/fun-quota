@@ -9,7 +9,7 @@ avatar = function (user){
 			img = "missing.png";
 		}
 	}
-	return '<img class="avatar" src="'+img+'" width="60" height="60" />';
+	return '<img class="avatar" src="'+img+'" width="50" height="50" />';
 }
 
 Template.funs.events({
@@ -41,7 +41,8 @@ Template.funs.funs = function () {
 
 Template.avatar_uploader.rendered = function ( ) {
 	var element = document.getElementById('constructed-widget');
-	filepicker.constructWidget(element);
+	if(filepicker != undefined)
+		filepicker.constructWidget(element);
 };
 
 avatarUploaded = function(avatar) {

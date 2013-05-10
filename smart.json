@@ -12,10 +12,10 @@
     "bootstrap-datepicker": {
       "git": "https://github.com/royletron/bootstrap-datepicker.git"
     },
+    "mini-pages": {},
+    "spin": {},
     "bootstrap-customizable": {
       "git": "https://github.com/royletron/meteor-bootstrap-less"
-    },
-    "mini-pages": {},
-    "spin": {}
+    }
   }
 }

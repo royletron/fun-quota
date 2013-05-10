@@ -65,6 +65,7 @@
       <th></th>
       <th></th>
       <th></th>
+      <th width=30></th>
     </tr>
     {{#each funs}}
       {{> afun}}
@@ -79,6 +80,7 @@
     <td style="vertical-align:middle">{{{getHappening this}}}</td>
     <td style="vertical-align:middle">{{expensesTotal this}}</td>
     <td style="vertical-align:middle">{{totalFun this}}</td>
+    <td style="vertical-align:middle"><a href="#" id="remove"><i class="icon-remove"> </i></a></td>
   </tr>
 </template>
 
@@ -94,6 +96,7 @@
         <th>Name</th>
         <th>Type</th>
         <th>Cost</th>
+        <th WIDTH="30"></th>
       </tr>
       {{#each expense_items fun}}
         {{> expense}}
@@ -102,6 +105,7 @@
         <td></td>
         <td></td>
         <td>{{expensesTotal fun}}</td>
+        <td></td>
       </tr>
     </table>
   {{else}}
@@ -109,5 +113,25 @@
   {{/if}}
   <a href="#expense-modal" data-toggle="modal" class="btn btn-success">Add expense</a>
   {{> new_expense}}
-  <div class="well alert" style="margin-top:20px;"><h2>Total fun = {{totalFun fun}}</h2></div>
+  <hr>
+  {{#if fun.multipliers}}
+    <h2 class="muted">Multipliers</h2>
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>* by</th>
+        <th WIDTH="30"></th>
+      </tr>
+    {{#each mutliplier_items fun}}
+      {{> multiplier}}
+    {{/each}}
+  </table>
+  {{else}}
+    <p>This fun has no multipliers yet</p>
+  {{/if}}
+  <a href="#multiplier-modal" data-toggle="modal" class="btn btn-success">Add multiplier</a>
+  {{> new_multiplier}}
+
+  <div class="well alert" style="margin-top:20px;"><h2>Total fun = {{totalFun fun}}</h2><h4>Breakdown</h4>{{{totalBreakdown fun}}}</div>
 </template>
