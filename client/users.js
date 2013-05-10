@@ -25,16 +25,6 @@ Template.logout.rendered = function() {
 		})
 };
 
-Template.user_profile.events({
-	'click #update_profile' : function(e, t) {
-		e.preventDefault();
-		$('#profile-modal').modal('hide');
-		var name = t.find('#account-name').value
-		, image = t.find('#filepath').value;
-		Meteor.users.update(Meteor.userId(), {$set: {profile: {name: name, picture: image}}});
-	}
-});
-
 Template.user_info.events({
 	'click #logout' : function(e) {
 		e.preventDefault();

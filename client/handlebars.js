@@ -1,5 +1,5 @@
-Handlebars.registerHelper("getAvatar", function(user) {
-	return avatar(user);
+Handlebars.registerHelper("getAvatar", function(user, size) {
+	return avatar(user, size);
 });
 Handlebars.registerHelper("setActive", function(pages) {
 	var rtn = 'class="active"';
@@ -12,10 +12,11 @@ Handlebars.registerHelper("setActive", function(pages) {
 		return "";
 	}
 });
-Handlebars.registerHelper("getAvatarID", function(ID) {
+Handlebars.registerHelper("getAvatarID", function(ID, size) {
+	size = typeof size !== 'undefined' ? size : 50;
 	if(ID != undefined){
 		var user = Meteor.users.findOne(ID);
-		return avatar(user);
+		return avatar(user, size);
 	}
 	else{
 		return "";

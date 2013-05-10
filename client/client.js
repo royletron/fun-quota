@@ -1,4 +1,4 @@
-avatar = function (user){
+avatar = function (user, size){
 	var img = "missing.png";
 	if(user){
 		if(user.profile.picture != "")
@@ -9,7 +9,7 @@ avatar = function (user){
 			img = "missing.png";
 		}
 	}
-	return '<img class="avatar" src="'+img+'" width="50" height="50" />';
+	return '<img class="avatar" src="'+img+'" width="'+size+'" height="'+size+'" />';
 }
 
 Template.funs.events({

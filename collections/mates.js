@@ -12,7 +12,7 @@ Meteor.methods({
 				console.log("already requested");
 			}
 			else{
-				Mates.insert({from: fromUser._id, to: toUser._id, when: new Date().getTime()});
+				Mates.insert({from: fromUser._id, to: toUser._id, when: moment().valueOf()});
 			}
 		}
 	}

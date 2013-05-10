@@ -1,0 +1,22 @@
+<template name="user_info">
+  {{#if currentUser}}
+    <a href="{{userProfilePath currentUser}}" style="padding-top:14px; padding-bottom:12px;">
+      {{currentUser.profile.name}}
+      {{{getAvatar currentUser 34}}}
+    </a>
+  {{/if}}
+</template>
+
+<template name="userEditProfile">     
+      <div class="form-horizontal">
+        {{> name_field}}
+        {{> avatar_uploader}}
+      </div>
+
+      <a id="update_profile" class="btn btn-primary">Save changes</a>
+</template>
+
+<template name="userProfile">
+  <h1>{{getAvatar user}} {{user.profile.name}}</h1>
+  
+</template>
